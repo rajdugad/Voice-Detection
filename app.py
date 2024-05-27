@@ -3,8 +3,6 @@ from transformers import GPT2Tokenizer, GPT2LMHeadModel
 from transformers import XLNetTokenizer, XLNetLMHeadModel
 import torch
 import nltk
-from nltk.util import ngrams
-from nltk.lm.preprocessing import pad_sequence
 from nltk.probability import FreqDist
 import plotly.express as px
 from collections import Counter

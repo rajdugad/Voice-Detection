@@ -59,28 +59,6 @@ def plot_top_repeated_words(text):
     fig = px.bar(x=words, y=counts, labels={'x': 'Words', 'y': 'Counts'}, title='Top 10 Most Repeated Words')
     st.plotly_chart(fig, use_container_width=True)
 
-
-from transformers import pipeline
-
-def is_generated_by_ai(paragraph):
-    # Load the text classification pipeline
-    text_classifier = pipeline("text-classification", model="nlptown/bert-base-multilingual-uncased-sentiment")
-
-    # Classify the input paragraph
-    result = text_classifier(paragraph)
-
-    # You can adjust this threshold based on experimentation
-    confidence_threshold = 0.7
-
-    # Check if the label is consistent with AI-generated text
-    # label = result[0]['label']
-    confidence = result[0]['score']
-    if confidence >= confidence_threshold:
-        st.write("Confidence Score:",result[0]['score'])
-        return True
-    else:
-        return False
-
 st.set_page_config(layout="wide")
 
 st.title("GPT Shield: AI Plagiarism Detector")
